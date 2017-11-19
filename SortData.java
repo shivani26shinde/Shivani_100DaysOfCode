@@ -11,7 +11,7 @@ public class SortData {
     static int totalPages = 0;
     static String[] getMovieTitles(String substr) throws IOException{
 		
-        String[] array;
+        String[] array = new String[1];
         StringBuilder sb= new StringBuilder();
         sb.append("https://jsonmock.hackerrank.com/api/movies/search/?Title=");
         sb.append(substr);
@@ -27,15 +27,14 @@ public class SortData {
 			
             while((line=br.readLine())!=null){	
                 JsonObject json = new Gson().fromJson(line, JsonObject.class);
-                String tot = json.get("total_pages").getAsString();
-                totalPages = Integer.parseInt(tot);
                 JsonArray jarray = json.getAsJsonArray("data");
-				
-                for(int j=0;j<jarray.length;j++){		
-                    json = jarray.get(j).getAsJsonObject();
-                    String result = json.get("Title").toString();
-                    System.out.println(result);
-                }
+				for(int j=0;j<jarray.size();j++) {
+					json = jarray.get(j).getAsJsonObject();
+					String result = json.get("Title").toString().replaceAll("\"", "");;
+					array[j] = result;
+				}
+				Arrays.sort(array);
+				return array;
             } 
         }
         return array;
