@@ -9,7 +9,6 @@ import java.util.regex.*;
 public class HaloSale {
 
     static int howManyGames(int p, int d, int m, int s) {
-        // Return the number of games you can buy
         int num = 0;
         int sum = 0;
         int prev = 0;
@@ -17,19 +16,18 @@ public class HaloSale {
         if(s<sum){
             return num;
         }
-        prev = sum-d;
-        num++;
-        while(sum<s){
-            if(prev>m){
+        prev = sum;
+        while(sum<=s){
+            num++;
+            prev = prev-d;
+            if(prev>=m){
                 sum = sum+prev;
             }
             else{
                 sum = sum+m;
             }
-            num++;
-            prev = prev-d;
         }
-        return num-1;
+        return num;
     }
 
     public static void main(String[] args) {
