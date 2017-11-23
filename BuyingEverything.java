@@ -33,7 +33,27 @@ public class BuyingEverything {
                 }
             }
         }
-        return array[m-1][b.length-1];        
+        int count = 0;
+        int start = 0;
+        while(start<b.length){
+            if(b[start] == 1){
+                count++;
+            }
+            if(count == m){
+                break;
+            }
+            start++;
+        }
+        if(count < m){
+            return -1;
+        }
+        long min = Long.MAX_VALUE;
+        for(int i=start;i<b.length;i++){
+            if(array[m-1][i] < min){
+                min = array[m-1][i];
+            }
+        }
+        return min;              
     }
 
     public static void main(String[] args) {
