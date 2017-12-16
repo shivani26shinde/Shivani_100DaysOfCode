@@ -17,8 +17,6 @@ class InverseCaptchaNoDuplicate
 		}
 		Stack<Integer> stStore = new Stack<>();
 		int startVal = array[0];
-		int start = 0;
-		int val = 0;
 		for(int i=1;i<array.length;i++){
 			if(array[i] == array[i-1]){
 				if(!stStore.isEmpty() && array[i-1] != stStore.peek()){
