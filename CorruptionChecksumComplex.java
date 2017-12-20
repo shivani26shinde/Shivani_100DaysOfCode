@@ -9,7 +9,7 @@ class CorruptionChecksumComplex
 {
 	public static void main (String[] args) throws java.lang.Exception
 	{
-		int[][] array = new int[3][4];
+		int[][] array = new int[16][16];
 		Scanner sc = new Scanner(System.in);
 		for(int i=0;i<16;i++){
 			for(int j=0;j<16;j++){
