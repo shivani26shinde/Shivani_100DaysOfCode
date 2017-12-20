@@ -1,5 +1,5 @@
 // Advent of Code 2017
-// Corrupption Checksum complex
+// Corrupption Checksum - Day 2
 
 import java.util.*;
 import java.lang.*;
@@ -18,7 +18,7 @@ class CorruptionChecksumComplex
 		}
 		int sum = 0;
 		for(int i=0;i<16;i++){
-			int[] arrayNew = new int[array[i].length];
+			int[] arrayNew = new int[16];
 			for(int j=0;j<16;j++){
 				arrayNew[j] = array[i][j];
 			}
